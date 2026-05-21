@@ -1,6 +1,8 @@
 import br.ufpb.streaming.model.*;
 
 void main() {
+    System.out.println("INICIANDO O STRAMING");
+
     Regiao brasil = new Regiao(1, "Brasil", "Brasil");
 
     CategoriaEtiqueta acao = new CategoriaEtiqueta();
@@ -58,29 +60,19 @@ void main() {
     temporada1.adicionarEpisodio(episodio1);
     temporada1.adicionarEpisodio(episodio2);
 
+    System.out.println("\nADMINISTRADOR\n");
+
     Administrador admin = new Administrador(1, "Administrador");
     admin.cadastrarTitulo(filme1);
     admin.cadastrarTitulo(serie1);
     //admin.removerTitulo(filme1);
 
-    System.out.println("Catálogo");
+    System.out.println("Exibir Catálogo");
     for(Conteudo conteudo: admin.listarCatalogo()){
         System.out.println(conteudo.getTitulo());
     }
 
-    admin.editarTitulo(
-            filme1,
-            "Super Maior Galaxy - Filme \n",
-            "HD"
-    );
-
-    /*admin.alterarDisponibilidade(
-            filme1,
-            StatusDisponibilidade.INDISPONIVEL);
-    */
-    for(Conteudo conteudo: admin.listarCatalogo()){
-        System.out.println(conteudo.getTitulo());
-    }
+    System.out.println("\nPERFIL DO USUÁRIO\n");
 
     Perfil perfil1 = new Perfil(
       1,
@@ -88,22 +80,33 @@ void main() {
       TipoPerfil.ADULTO
     );
 
-    perfil1.assistir((Reproduzivel) filme1);
+    System.out.println("Perfil Criado: " + perfil1.getNome());
+    System.out.println("Tipo do Perfil: " + perfil1.getTipo());
 
+        System.out.println("\nREPRODUÇÃO\n");
+    perfil1.assistir((Reproduzivel) filme1);
     perfil1.assistir(episodio1);
 
+    System.out.println("\nMINHA LISTA\n");
     perfil1.adicionarNaMinhaLista(filme1);
     perfil1.adicionarNaMinhaLista(serie1);
+
 
     for(Conteudo conteudo: perfil1.getMinhaLista().listarConteudos()){
         System.out.println(conteudo.getTitulo());
     }
 
+    System.out.println("\nAVALIAÇÃO\n");
     Avaliacao avaliacao1 = perfil1.avaliar(
       filme1,
       5,
       "Excelente filme"
     );
+
+    System.out.println("Avaliação registrada para " + filme1.getTitulo());
+
+
+    System.out.println("\nCONTROLE PARENTAL\n");
 
     Perfil perfil2 = new Perfil(
             2,
@@ -113,6 +116,13 @@ void main() {
 
     ControleParental controle = new ControleParental();
     controle.verificarClassificacao(perfil2, serie1);
+
+    System.out.println("Perfil Criado: " + perfil2.getNome());
+    System.out.println("Tipo do Perfil: " + perfil2.getTipo());
+    System.out.println("Conteúdo: " + serie1.getTitulo());
+
+    System.out.println("\nDISPONIBILIDADE\n");
+
 
     filme1.verificarDisponibilidade(brasil);
 
@@ -153,4 +163,19 @@ void main() {
     disponibilidade.tornarDisponivel();
     System.out.println(disponibilidade);
 
+
+
+    admin.editarTitulo(
+            filme1,
+            "Super Maior Galaxy - Filme \n",
+            "HD"
+    );
+
+    /*admin.alterarDisponibilidade(
+            filme1,
+            StatusDisponibilidade.INDISPONIVEL);
+    */
+    for(Conteudo conteudo: admin.listarCatalogo()){
+        System.out.println(conteudo.getTitulo());
+    }
 }

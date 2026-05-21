@@ -40,4 +40,18 @@ public abstract class Conteudo {
     public int getClassificacaoIndicativa(){
         return classificacaoIndicativa;
     }
+
+    public void alterarDados(String novoTitulo, String novaDescricao){
+        if(novoTitulo != null && !novoTitulo.isBlank()){
+            this.titulo = novoTitulo;
+        }
+
+        if(novaDescricao != null && !novaDescricao.isBlank()){
+            this.descricao = novaDescricao;
+        }
+    }
+
+    public void alterarDisponibilidade(StatusDisponibilidade status){
+        this.statusDisponibilidade = status;
+    }
 }

@@ -14,10 +14,7 @@ public class DisponibilidadeRegional {
     private Conteudo conteudo;
     private Regiao regiao;
 
-    public DisponibilidadeRegional(int idDisponibilidade, Conteudo conteudo,
-                                   Regiao regiao,
-                                   boolean disponivel,
-                                   String motivo) {
+    public DisponibilidadeRegional(int idDisponibilidade, Conteudo conteudo, Regiao regiao, boolean disponivel, String motivo) {
         this.regiao = regiao;
         this.conteudo = conteudo;
         this.motivo = motivo;
@@ -34,7 +31,7 @@ public class DisponibilidadeRegional {
         this.dataInicioIndisponibilidade = dataInicio;
         this.dataFimIndisponibilidade = dataFim;
         this.motivo = motivo;
-        System.out.println(conteudo.getTitulo() + "ficou indispoível em " + regiao.getNome());
+        System.out.println(conteudo.getTitulo() + " ficou indispoível em " + regiao.getNome());
     }
 
     public void tornarDisponivel(){
@@ -59,12 +56,11 @@ public class DisponibilidadeRegional {
 
     @Override
     public String toString() {
-        return "DisponibilidadeRegional{" +
-                "idDisponibilidade=" + idDisponibilidade +
-                ", disponivel=" + disponivel +
-                ", motivo='" + motivo + '\'' +
-                ", conteudo=" + conteudo +
-                ", regiao=" + regiao +
-                '}';
+        return "Disponibilidade Regional \n" +
+                "idDisponibilidade=" + idDisponibilidade + '\n' +
+                ", disponivel=" + disponivel + '\n' +
+                ", motivo='" + motivo + '\n' +
+                ", conteudo=" + conteudo.getTitulo() + '\n' +
+                ", regiao=" + regiao.getNome();
     }
 }

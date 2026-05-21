@@ -60,8 +60,27 @@ void main() {
 
     Administrador admin = new Administrador(1, "Administrador");
     admin.cadastrarTitulo(filme1);
-    admin.editarTitulo(serie1);
+    admin.cadastrarTitulo(serie1);
     //admin.removerTitulo(filme1);
+
+    System.out.println("Catálogo");
+    for(Conteudo conteudo: admin.listarCatalogo()){
+        System.out.println(conteudo.getTitulo());
+    }
+
+    admin.editarTitulo(
+            filme1,
+            "Super Maior Galaxy - Filme \n",
+            "HD"
+    );
+
+    /*admin.alterarDisponibilidade(
+            filme1,
+            StatusDisponibilidade.INDISPONIVEL);
+    */
+    for(Conteudo conteudo: admin.listarCatalogo()){
+        System.out.println(conteudo.getTitulo());
+    }
 
     Perfil perfil1 = new Perfil(
       1,
@@ -124,16 +143,11 @@ void main() {
 
     System.out.println(historico);
 
-    DisponibilidadeRegional disponibilidade = new DisponibilidadeRegional(
-            1,
-            filme1,
-            brasil,
-            true,
-            "");
+    DisponibilidadeRegional disponibilidade = new DisponibilidadeRegional(1, filme1, brasil, true, "");
 
     System.out.println("Disponível? " + disponibilidade.verificarDisponibilidade());
 
-    disponibilidade.tornarIndisponivel(LocalDate.now(), LocalDate.now().plusDays(30), "Licneça expirada");
+    disponibilidade.tornarIndisponivel(LocalDate.now(), LocalDate.now().plusDays(30), " Licença expirada");
 
     System.out.println(disponibilidade);
     disponibilidade.tornarDisponivel();

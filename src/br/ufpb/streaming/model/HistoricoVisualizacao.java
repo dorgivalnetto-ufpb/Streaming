@@ -24,9 +24,9 @@ public class HistoricoVisualizacao {
     }
 
     public void registrarVisualizacao(){
-        System.out.println(perfil.getNome() + "iniciou" + conteudo.getTitulo());
+        System.out.println(perfil.getNome() + " iniciou " + conteudo.getTitulo());
         System.out.println("Dispositivo: " + dispositivo.getNome());
-        System.out.println("Data/Hora: " + dataHora);
+        System.out.println("Data/Hora: " + dataHora + "\n");
     }
 
     public void atualizarProgresso(double progresso, int tempoAssistido){
@@ -41,15 +41,14 @@ public class HistoricoVisualizacao {
 
     @Override
     public String toString() {
-        return "HistoricoVisualizacao{" +
+        return "Historico Visualização \n" +
                 "idHistorico=" + idHistorico +
                 ", dataHora=" + dataHora +
                 ", progresso=" + progresso +
                 ", tempoAssistido=" + tempoAssistido +
-                ", perfil=" + perfil +
-                ", conteudo=" + conteudo +
-                ", dispositivo=" + dispositivo +
-                '}';
+                ", perfil=" + perfil.getNome() +
+                ", conteudo=" + conteudo.getTitulo() +
+                ", dispositivo=" + dispositivo;
     }
 
     public Dispositivo getDispositivo() {

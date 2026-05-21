@@ -19,6 +19,6 @@ public class Episodio implements Reproduzivel{
 
     @Override
     public void reproduzir() {
-        System.out.println("Reproduzindo o episódio" + titulo);
+        System.out.println("Reproduzindo o episódio " + titulo);
     }
 }

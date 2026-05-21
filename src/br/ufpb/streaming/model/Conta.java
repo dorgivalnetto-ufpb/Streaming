@@ -56,4 +56,20 @@ public class Conta {
         }
     }
 
+    public List<Perfil> listarPerfis(){
+        return perfis;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public Regiao getRegiao(){
+        return regiao;
+    }
+
+    public int getIdConta(){
+        return idConta;
+    }
+
 }

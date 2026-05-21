@@ -20,6 +20,10 @@ public class Serie extends Conteudo{
         this.status = status;
     }
 
+    public void adicionarTemporada(Temporada temporada){
+        temporadas.add(temporada);
+    }
+
    public List<Temporada> obterTemporadas(){
         return temporadas;
    }
